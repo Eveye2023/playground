@@ -16,11 +16,11 @@ Playfround is a website a approperiate worksheet and study activities for my dau
 
 ### Features
 
-1, login 
-2, games - At first I will put 1 or 2 small games in this app, and will add more in the future.
-3, activities - including math activity, sight word activity and some science activity
-4, time lock - the screen will be locked if the user play games or activities more than 15 minites. Parents can unlock it with password.
-5, worksheet customization - template will be offered to choose. For math, parent can choose number range, operator etc.
+- login 
+- games - At first I will put 1 or 2 small games in this app, and will add more in the future.
+- activities - including math activity, sight word activity and some science activity
+- time lock - the screen will be locked if the user play games or activities more than 15 minites. Parents can unlock it with password.
+- worksheet customization - template will be offered to choose. For math, parent can choose number range, operator etc.
 
 ## Implementation
 
