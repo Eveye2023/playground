@@ -62,8 +62,8 @@ Playfround is a website a approperiate worksheet and study activities for my dau
 
 ### Endpoints
 
-**GET /user**
-**POST /user**
+- **GET /user**
+- **POST /user**
 
 
 ### Auth
