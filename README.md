@@ -7,19 +7,17 @@ Offering study activities, worksheet customization and small games for kids unde
 
 ### Problem
 
-Playfround is a website a approperiate worksheet and study activities for my daughter, but didn't find a website with all these functions, and most these kind of websites are full with ads and popups.
+I used to spend a lot of time to find a approperiate worksheet and study activities for my daughter, but didn't find a website with all these functions, and most these kind of websites are full with ads and popups.
 
 ### User Profile
 
-- Children play with small games and do study activities in this app.A time limit lock is set for these games and activities to avoid spending so much time on computer.
+- Children play with small games and do study activities in this app. A time limit lock is set for these games and activities to avoid spending so much time on computer.
 - Parents can use the worksheet customization page to make the worksheet they need and print or download it.
 
 ### Features
 
 - login 
 - games - At first I will put 1 or 2 small games in this app, and will add more in the future.
-- activities - including math activity, sight word activity and some science activity
-- time lock - the screen will be locked if the user play games or activities more than 15 minites. Parents can unlock it with password.
 - worksheet customization - template will be offered to choose. For math, parent can choose number range, operator etc.
 
 ## Implementation
@@ -64,6 +62,7 @@ Playfround is a website a approperiate worksheet and study activities for my dau
 
 - **GET /user**
 - **POST /user**
+- **PUT /user**
 
 
 ### Auth
@@ -102,4 +101,5 @@ Playfround is a website a approperiate worksheet and study activities for my dau
 - DEMO DAY
 
 ## Nice-to-haves
-
+- activities - including math activity, sight word activity and some science activity
+- time lock - the screen will be locked if the user play games or activities more than 15 minites. Parents can unlock it with password.
