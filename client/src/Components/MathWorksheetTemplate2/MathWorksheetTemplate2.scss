@@ -1,0 +1,60 @@
+@use "../../style/varialbles" as *;
+@use "../../style/typography" as *;
+
+.math-worksheet2 {
+  background-color: white;
+  padding: 2rem 10% 1rem;
+  font-family: Itim;
+
+  &__print {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  &__text-holder {
+    display: inline-block;
+    flex-basis: 10%;
+    flex: 1;
+    height: 1rem;
+    border-bottom: 2px dotted $primary-background-color;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 3rem;
+  }
+
+  &__content {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  &__column {
+    // flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__quest {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__answer-holder {
+   height:4.5rem;
+
+    img {
+      height: 100%;
+    }
+  }
+}

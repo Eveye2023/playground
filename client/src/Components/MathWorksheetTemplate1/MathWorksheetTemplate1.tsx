@@ -11,7 +11,8 @@ interface MathWorksheetTemplate1Props {
 
 function MathWorksheetTemplate1({ operator, start, end }: MathWorksheetTemplate1Props) {
   function randomNum() {
-    return Math.floor(Math.random() * (end + 1)) - start;
+    let num = end - start;
+    return Math.floor(Math.random() * num) + start + 1;
   }
 
   return (
