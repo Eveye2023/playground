@@ -6,6 +6,11 @@
   padding: 2rem 10% 1rem;
   font-family: Itim;
 
+  &__print{
+    display:flex;
+    justify-content: flex-end;
+  }
+
   &__header {
     margin: 0 5%;
     display: flex;
