@@ -1,0 +1,29 @@
+.header{
+    box-sizing: border-box;
+    background-color: rgba(53, 62, 113, 0.5);
+    width:100%;
+    padding:1rem 10%;
+    border-bottom: 3px soild white;
+    display:flex;
+    justify-content: space-between;
+    @media print {
+        & {
+            display: none;
+        }
+    }
+    
+    &__nav{
+        display:flex;
+        gap:2rem;
+        align-items: center;
+    }
+
+    &__logo{
+        width:8rem;
+
+        img{
+            width:100%;
+        }
+    }
+
+}

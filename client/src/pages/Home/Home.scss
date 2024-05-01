@@ -1,0 +1,106 @@
+.hero {
+  width: 80%;
+  margin: 2rem auto;
+
+  &__img {
+    width: 100%;
+  }
+}
+
+.home-menu {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  justify-content: center;
+
+  &__link {
+    appearance: button;
+    background-color: #eb7b01;
+    border: solid transparent;
+    border-radius: 1rem;
+    border-width: 0 0 6px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    //   display: inline-block;
+    display: block;
+    font-family: din-round, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.125rem;
+    line-height: 8rem;
+    //   width:10rem;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 0 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter 0.2s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  &__link:after {
+    background-clip: padding-box;
+    background-color: #ff8806;
+    border: solid transparent;
+    border-radius: 1rem;
+    border-width: 0 0 0.25rem;
+    bottom: 0.25rem;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+
+  &__link:main {
+    user-select: auto;
+  }
+
+  &__link:focus {
+    user-select: auto;
+  }
+
+  &__link:hover:not(:disabled) {
+    filter: brightness(1.1);
+    -webkit-filter: brightness(1.1);
+  }
+
+  &__link:disabled {
+    cursor: auto;
+  }
+
+  &__link:active {
+    border-width: 4px 0 0;
+    background: none;
+  }
+
+  &__worksheets{
+    background-color: #c5b012;
+  }
+
+  &__worksheets:after{
+    background-color: #e0c712;
+  }
+
+  &__activities{
+    background-color: #89ae0a;
+  }
+
+  &__activities:after{
+    background-color: #99c30a;
+  }
+}
+
+.link{
+  text-decoration: none;
+}

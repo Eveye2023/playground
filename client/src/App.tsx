@@ -1,27 +1,31 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import Header from "./Components/Header";
-import Body from "./Containers/Body";
+import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Nav from "./Components/Nav";
-import GamesContainer from "./Containers/GamesContainer";
+import SignUp from "./pages/SignUp/SignUp";
+import SignIn from "./pages/SignIn/SignIn";
+import BubbleBackground from "./Components/BubbleBackground/BubbleBackground";
+import GameSelector from "./pages/GameSelector/GameSelector";
+import MemoryGame from "./pages/MemoryGame/MemoryGame";
+import Header from "./Components/Header/Header";
+import Home from "./pages/Home/Home";
+import Worksheets from "./pages/Worksheets/Worksheets";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Body>
-        <BrowserRouter>
-          <Nav />
-          <Routes>
-            <Route path="activities" />
-            <Route path="games" element={<GamesContainer />} />
-            <Route path="games/:gameId" element={<GamesContainer />} />
-            <Route path="worksheets" />
-          </Routes>
-        </BrowserRouter>
-      </Body>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="back" element={<BubbleBackground />} />
+          <Route path="signin" element={<SignIn />} />
+          <Route path="activities" />
+          <Route path="games" element={<GameSelector />} />
+          <Route path="games/memory-game" element={<MemoryGame />} />
+          <Route path="worksheets" element={<Worksheets />} />
+        </Routes>
+      </BrowserRouter>
+      {/* </Body> */}
     </div>
   );
 }

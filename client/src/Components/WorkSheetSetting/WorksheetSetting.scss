@@ -1,0 +1,26 @@
+
+@use "../../style/_varialbles" as *;
+
+.worksheet__slider{
+    display:flex;
+    gap:0.5rem;
+}
+
+.worksheet__label{
+    font-size: 1rem;
+    color:$primary-CTA-color;
+    font-weight: 600;
+}
+
+.spacing-label{
+    display:inline-block;
+    margin-left: 2rem;
+}
+
+.worksheet__slider{
+    flex-basis: 45%;
+}
+
+// .worksheet__print{
+//     flex-basis: 10%;
+// }
