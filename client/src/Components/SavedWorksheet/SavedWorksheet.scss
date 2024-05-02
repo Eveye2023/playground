@@ -1,0 +1,27 @@
+.saved-worksheets {
+    background-color: white;
+    padding: 1rem 0;
+    border: 1px dotted black;
+  
+    &__header {
+      margin: 0;
+      padding: 2rem 0;
+      text-align: center;
+    }
+  
+    &__content {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+  
+    &__worksheet {
+      flex-basis: 20%;
+  
+      img {
+        width: 100%;
+      }
+    }
+  }
+  

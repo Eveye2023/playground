@@ -1,126 +1,171 @@
 @use "../../style/typography" as *;
 @use "../../style/_varialbles" as *;
 
-.handwriting-header{
+.main-wrapper {
   background-color: white;
-  margin:0;
-  padding-top:2rem;
-  text-align: center;
-  color:$primary-CTA-color;
 }
 
-.worksheets {
-  padding:2rem 10%;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  height: 297mm;
-  // @page {
-  //   & {
-  //     size: auto;
-  //     size: A4;
-  //     margin: 0;
-  //   }
-  // }
-  @media print {
-    & {
-        padding: 0;
-        display: block;  
-            size: auto;
-            size: A4;
-            margin: 0;
-    }
-  }
-  &__settings {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    margin-top: 1rem;
-    align-items: center;
+
+.create-worksheet {
+  padding: 2rem 10%;
+
+  &__btn-create {
+    display: block;
+    margin: auto;
+    padding: 1rem 2rem;
+    border: none;
+    cursor: pointer;
+    background-color: $primary-CTA-color;
+    color: white;
     font-size: 1rem;
-    @media print {
-      & {
-        display: none;
-      }
-    }
   }
 
-  &__row {
-    font-size: 1em;
-    line-height: 1em;
+  &__btn-create:hover {
+    background-color: #28568b;
+  }
+
+  &__type {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    display:none;
+  }
+
+  &__type-btn {
+    width: 10rem;
+    position: relative;
+    height: 3.5rem;
+    border: 3px ridge #149cea;
+    outline: none;
+    background-color: transparent;
+    color: #1d4c84;
+    transition: 1s;
+    border-radius: 0.3em;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  &__type-btn:after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: white;
+    transition: 0.5s;
+    transform-origin: center;
+  }
+
+  &__type-btn:before {
+    content: "";
+    transform-origin: center;
+    position: absolute;
+    top: 80%;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: white;
+    transition: 0.5s;
+  }
+
+  &__type-btn:hover::before,
+  &__type-btn:hover::after {
+    transform: scale(0);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    display:none;
+  }
+
+  &__label {
+    font-weight: 600;
+    flex-basis: 15%;
+  }
+
+  &__template {
+    margin-top: 2rem;
     display: flex;
     gap: 2rem;
-    flex-direction: row;
-    height: 60px;
-    margin-top: 1em;
-    @media print {
-      & {
-        display: block;
-      }
-    }
-  }
-  &__control {
-    height: 100%;
-    flex: 20rem 0;
-    // border: 5px solid red;
-    font-size: 1em;
-    @media print {
-      & {
-        display: none;
-      }
-    }
-    div {
-      height: 100%;
-      width: 100%;
-    }
-    input {
-      height: 100%;
-      width: 100%;
-    }
   }
 
-  &__review {
-    flex-basis: 210mm;
-    height: 100%;
-    // max-width: calc(100% - 22rem);
-    overflow: hidden;
-    white-space: nowrap;
+  &__template-option {
+    flex-basis: 20%;
+    display: inline-block;
     position: relative;
-    flex-grow: 0;
-    flex-shrink: 0;
-    // border: 5px solid green;
-    font-size: 1em;
-    height: calc(1.5em - 2px);
-    border-top: 1px dashed grey;
-    border-bottom: 1px dashed grey;
-    font-family: "TeachingPrintDotted";
-    font-weight: 400;
-    font-style: normal;
-    @media print {
-      & {
-        display: block;
-        // float: right;
-        max-width: 100%;
-      }
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: 0.3s;
+    background: lightgray;
+    border: solid 3px lightgray;
+
+    img {
+      width: 100%;
     }
 
-    &-text {
-      height: 100%;
-      padding: 0.05em;
-      font-size: 1.3em;
-      white-space: nowrap;
-    }
-    &-lines {
-      width: 100%;
-      height: 100%;
-      //   z-index: -1;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-    }
-    &-line {
-      height: calc(0.5em - 1px);
-      border-bottom: 1px dashed grey;
+    input {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      display: none;
     }
   }
+
+  &__template-option:has(input:checked) {
+    // background-color: coral;
+    border: solid 5px $primary-background-color;
+    box-shadow: inset 1px 2px 0px rgba(0, 0, 0, 0.18), inset -1px -2px 0px rgba(255, 255, 255, 0.25);
+  }
+
+  &__math-param {
+    display: flex;
+    gap: 2rem;
+
+    .create-worksheet__label {
+      flex-basis: 25%;
+    }
+
+    input,
+    select {
+      flex: 1;
+    }
+  }
+
+  &__range {
+    flex-basis: 33%;
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__operator {
+    flex-basis: 33%;
+    display: flex;
+    gap: 0.15rem;
+  }
+
+  &__submit {
+    background-color: $primary-CTA-color;
+    border:none;
+    color:white;
+    padding:1rem 3rem;
+  }
+}
+
+input,
+select {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.show{
+  display:flex;
+}
+
+.hide{
+  display:none;
 }

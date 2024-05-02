@@ -11,6 +11,7 @@ import Worksheets from "./pages/Worksheets/Worksheets";
 import MathWorksheetTemplate2 from "./Components/MathWorksheetTemplate2/MathWorksheetTemplate2";
 import MathWorksheetTemplate1 from "./Components/MathWorksheetTemplate1/MathWorksheetTemplate1";
 import MathWorksheetTemplate3 from "./Components/MathWorksheetTemplate3/MathWorksheetTemplate3";
+import HandwritingWorksheet from "./pages/HandwritingWorksheet/HandwritingWorksheet";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="math" element={<MathWorksheetTemplate3 operator="+" start={1} end ={7}/>} />
+          <Route path="math" element={<MathWorksheetTemplate2 operator="+" start={1} end ={7}/>} />
           <Route path="/" element={<Home />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="back" element={<BubbleBackground />} />
@@ -27,6 +28,7 @@ function App() {
           <Route path="games" element={<GameSelector />} />
           <Route path="games/memory-game" element={<MemoryGame />} />
           <Route path="worksheets" element={<Worksheets />} />
+          <Route path="worksheets/handwriting" element={<HandwritingWorksheet />} />
         </Routes>
       </BrowserRouter>
       {/* </Body> */}
