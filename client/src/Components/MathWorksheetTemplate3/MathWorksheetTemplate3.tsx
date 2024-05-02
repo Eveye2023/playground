@@ -19,7 +19,8 @@ function MathWorksheetTemplate3({ operator, start, end }: MathWorksheetTemplate3
 
   return (
     <>
-      <main className="math-worksheet3">
+    <main className="main-wrapper">
+      <div className="math-worksheet3">
         <div className="math-worksheet3__print">
           <PrintIcon />
         </div>
@@ -38,7 +39,7 @@ function MathWorksheetTemplate3({ operator, start, end }: MathWorksheetTemplate3
         <div className="math-worksheet3__instruction">Use the number line to find the answer</div>
 
         <div className="math-worksheet3__content">
-          {range(0, 6).map((index) => (
+          {range(0, 7).map((index) => (
             <div className="math-worksheet3__quest" key={index}>
               {/* <div className="math-worksheet3__number-line"> */}
                 <img className="math-worksheet3__number-line" src={number_line} alt="number line" />
@@ -51,6 +52,7 @@ function MathWorksheetTemplate3({ operator, start, end }: MathWorksheetTemplate3
             </div>
           ))}
         </div>
+      </div>
       </main>
     </>
   );

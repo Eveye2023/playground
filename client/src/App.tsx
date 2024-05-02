@@ -8,7 +8,9 @@ import MemoryGame from "./pages/MemoryGame/MemoryGame";
 import Header from "./Components/Header/Header";
 import Home from "./pages/Home/Home";
 import Worksheets from "./pages/Worksheets/Worksheets";
+import MathWorksheetTemplate2 from "./Components/MathWorksheetTemplate2/MathWorksheetTemplate2";
 import MathWorksheetTemplate1 from "./Components/MathWorksheetTemplate1/MathWorksheetTemplate1";
+import MathWorksheetTemplate3 from "./Components/MathWorksheetTemplate3/MathWorksheetTemplate3";
 
 function App() {
   return (
@@ -16,7 +18,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="math" element={<MathWorksheetTemplate1 operator="+" start={0} end ={10}/>} />
+          <Route path="math" element={<MathWorksheetTemplate3 operator="+" start={1} end ={7}/>} />
           <Route path="/" element={<Home />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="back" element={<BubbleBackground />} />

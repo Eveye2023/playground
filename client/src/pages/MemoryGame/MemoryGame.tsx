@@ -22,9 +22,9 @@ const getDimensions = (mode: Mode) => {
     case Mode.EASY:
       return [4, 4];
     case Mode.MEDIUM:
-      return [6, 6];
+      return [4, 6];
     case Mode.HARD:
-      return [6, 8];
+      return [6, 6];
   }
 };
 
@@ -159,22 +159,22 @@ function MemoryGame() {
           </div>
 
           {range(0, rows).map((rowId) => (
-            <div className="memory-game__row" key={mode + "-" + rowId}>
+            <div className="memory-game__row" key={rowId}>
               {range(0, cols).map((colId) => (
                 <div
                   className="memory-game__card"
-                  key={mode + "-" + rowId + "-" + colId}
-                  onClick={() => flipCard(rowId * rows + colId)}
+                  key={colId}
+                  onClick={() => flipCard(rowId * cols + colId)}
                 >
                   <div
                     className={
-                      "memory-game__card-image " + getMemoryGameCardImageClass(rowId * rows + colId)
+                      "memory-game__card-image " + getMemoryGameCardImageClass(rowId * cols + colId)
                     }
                   >
                     <i
                       className={
                         "fa fa-thin fa-4x " +
-                        ((index: number) => shuffledCards[index])(rowId * rows + colId)
+                        ((index: number) => shuffledCards[index])(rowId * cols + colId)
                       }
                     ></i>
                   </div>

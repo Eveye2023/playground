@@ -14,9 +14,21 @@
   background-color: white;
   display: flex;
   flex-direction: column;
+  height: 297mm;
+  // @page {
+  //   & {
+  //     size: auto;
+  //     size: A4;
+  //     margin: 0;
+  //   }
+  // }
   @media print {
     & {
-      //   padding: 30px 20px;
+        padding: 0;
+        display: block;  
+            size: auto;
+            size: A4;
+            margin: 0;
     }
   }
   &__settings {
@@ -37,9 +49,15 @@
     font-size: 1em;
     line-height: 1em;
     display: flex;
+    gap: 2rem;
     flex-direction: row;
     height: 60px;
     margin-top: 1em;
+    @media print {
+      & {
+        display: block;
+      }
+    }
   }
   &__control {
     height: 100%;
@@ -51,6 +69,10 @@
         display: none;
       }
     }
+    div {
+      height: 100%;
+      width: 100%;
+    }
     input {
       height: 100%;
       width: 100%;
@@ -58,12 +80,14 @@
   }
 
   &__review {
+    flex-basis: 210mm;
     height: 100%;
-    max-width: calc(100% - 20rem);
+    // max-width: calc(100% - 22rem);
     overflow: hidden;
     white-space: nowrap;
     position: relative;
-    flex-grow: 1;
+    flex-grow: 0;
+    flex-shrink: 0;
     // border: 5px solid green;
     font-size: 1em;
     height: calc(1.5em - 2px);
@@ -75,6 +99,7 @@
     @media print {
       & {
         display: block;
+        // float: right;
         max-width: 100%;
       }
     }

@@ -1,10 +1,17 @@
 @use "../../style/varialbles" as *;
 @use "../../style/typography" as *;
 
+
+.main-wrapper{
+  background-color: white;
+}
+
 .math-worksheet {
   background-color: white;
   padding: 2rem 10% 1rem;
   font-family: Itim;
+  width:210mm;
+  margin:auto;
 
   &__print{
     display:flex;
