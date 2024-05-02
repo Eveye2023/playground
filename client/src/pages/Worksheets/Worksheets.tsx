@@ -12,11 +12,13 @@ function Worksheets() {
 
   function CreateBtnHandler() {
     setShowType(true);
+    setShowForm(false);
     window.scrollTo(0, document.body.scrollHeight);
   }
 
   function MathBtnHandler() {
     setShowForm(true);
+    window.scrollTo(0, document.body.scrollHeight);
   }
 
   return (

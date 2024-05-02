@@ -6,6 +6,7 @@
     border-bottom: 3px soild white;
     display:flex;
     justify-content: space-between;
+    color:white;
     @media print {
         & {
             display: none;
@@ -16,6 +17,11 @@
         display:flex;
         gap:2rem;
         align-items: center;
+    }
+
+    &__link{
+        text-decoration: none;
+        color:white;
     }
 
     &__logo{
