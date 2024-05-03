@@ -15,6 +15,7 @@ import HandwritingWorksheet from "./pages/HandwritingWorksheet/HandwritingWorksh
 import { useEffect, useState } from "react";
 import { SERVER_ENDPOINT } from "./util";
 import axios from "axios";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -46,16 +47,16 @@ function App() {
       <BrowserRouter>
         <Header user={userInfo} />
         <Routes>
-          <Route path="math" element={<MathWorksheetTemplate2 operator="+" start={1} end={7} />} />
           <Route path="/" element={<Home />} />
           <Route path="signup" element={<SignUp />} />
-          <Route path="back" element={<BubbleBackground />} />
           <Route path="signin" element={<SignIn setToken={setToken} />} />
+          <Route path="profile" element={<Profile user={userInfo}/> }/>
           <Route path="activities" />
           <Route path="games" element={<GameSelector />} />
           <Route path="games/memory-game" element={<MemoryGame />} />
           <Route path="worksheets" element={<Worksheets />} />
           <Route path="worksheets/handwriting" element={<HandwritingWorksheet />} />
+          <Route path="math" element={<MathWorksheetTemplate2 operator="+" start={1} end={7} />} />
         </Routes>
       </BrowserRouter>
       {/* </Body> */}
