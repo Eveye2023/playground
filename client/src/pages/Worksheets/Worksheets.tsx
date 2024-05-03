@@ -3,12 +3,14 @@ import template1 from "../../assets/images/math_template1.png";
 import template2 from "../../assets/images/math_template2.png";
 import template3 from "../../assets/images/math_template3.png";
 import SavedWorksheet from "../../Components/SavedWorksheet/SavedWorksheet";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 function Worksheets() {
   const [showTypes, setShowType] = useState(false);
   const [showForm, setShowForm] = useState(false);
+ const navigate = useNavigate();
+
 
   function CreateBtnHandler() {
     setShowType(true);
@@ -21,6 +23,23 @@ function Worksheets() {
     window.scrollTo(0, document.body.scrollHeight);
   }
 
+  function submitHandler(event: any) {
+    let template = event.target.template.value;
+    switch (template) {
+      case "template1":
+        navigate("/worksheets/math/template1");
+        break;
+      case "template2":
+        navigate("/worksheets/math/template2");
+        break;
+      case "template3":
+        navigate("/worksheets/math/template3");
+        break;
+      default:
+      // code block
+    }
+  }
+
   return (
     <>
       <main className="main-wrapper">
@@ -30,28 +49,32 @@ function Worksheets() {
             <i className="fa fa-solid fa-plus"></i> Create New Worksheet
           </button>
           <div className={showTypes ? "create-worksheet__type show" : "create-worksheet__type"}>
-            <button className={"create-worksheet__type-btn"} onClick={MathBtnHandler}>Math</button>
-            <Link to="handwriting" className={showForm? "hide": ""}>
+            <button className={"create-worksheet__type-btn"} onClick={MathBtnHandler}>
+              Math
+            </button>
+            <Link to="handwriting" className={showForm ? "hide" : ""}>
               <button className="create-worksheet__type-btn">Handwriting</button>
             </Link>
           </div>
-          <form className={showForm? "create-worksheet__form show" : "create-worksheet__form"}>
+          <form
+            className={showForm ? "create-worksheet__form show" : "create-worksheet__form"}
+          onSubmit={submitHandler}>
             <div className="create-worksheet__template">
               <label className="create-worksheet__label">Choose template:</label>
               <label className="create-worksheet__template-option">
-                <input type="radio" name="template" />
+                <input type="radio" name="template" value="template1" />
                 <img src={template1} alt="template1" />
               </label>
               <label className="create-worksheet__template-option">
-                <input type="radio" name="template" />
+                <input type="radio" name="template" value="template2" />
                 <img src={template2} alt="template2" />
               </label>
               <label className="create-worksheet__template-option">
-                <input type="radio" name="template" />
+                <input type="radio" name="template" value="template3" />
                 <img src={template3} alt="template3" />
               </label>
             </div>
-            <div className="create-worksheet__math-param">
+            {/* <div className="create-worksheet__math-param">
               <div className="create-worksheet__range">
                 <label htmlFor="start_number" className="create-worksheet__label">
                   Start Number:
@@ -75,7 +98,7 @@ function Worksheets() {
                   <option value="÷">÷</option>
                 </select>
               </div>
-            </div>
+            </div> */}
             <input type="submit" value="Create" className="create-worksheet__submit" />
           </form>
         </div>
