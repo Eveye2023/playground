@@ -17,9 +17,18 @@ router.post('/signup', async (req, res) => {
     // Encrypt the password
     const encryptedPassword = bcrypt.hashSync(password, 8);
 
-    // Insert into database
+   
     try {
-        await knex('users').insert({
+        //Check if user already exist
+        const response = await knex('user').where({ email: email }).first()
+        console.log(response);
+        if(response){
+            res.status(400).send("User already exist.");
+            return;
+        }
+
+        // Insert into database
+        await knex('user').insert({
             email,
             password: encryptedPassword
         });
@@ -27,6 +36,7 @@ router.post('/signup', async (req, res) => {
         // Response with success status code
         res.status(201).send("Registered successfully");
     } catch (err) {
+        console.error(err);
         res.status(500).send('Sorry cant create the user now');
     }
 });
