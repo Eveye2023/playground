@@ -23,6 +23,7 @@ interface HeaderProps {
 }
 function Header({ user }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+
   const logout = () => {
     localStorage.removeItem("authToken");
     window.location.reload();
@@ -61,9 +62,12 @@ function Header({ user }: HeaderProps) {
             <List>
               <ListItem disablePadding>
                 <ListItemButton>
-                  {/* <ListItemIcon>
-                    <ExitToAppIcon />
-                  </ListItemIcon> */}
+                <i className="fa fa-solid fa-id-badge"></i>
+                  <ListItemText primary="profile" onClick={logout} />
+                </ListItemButton>
+              </ListItem>
+              <ListItem disablePadding>
+                <ListItemButton>
                   <ListItemText primary="Logout" onClick={logout} />
                 </ListItemButton>
               </ListItem>

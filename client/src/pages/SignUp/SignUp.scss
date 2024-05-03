@@ -53,6 +53,10 @@
     display: none;
     color: #c94515;
   }
+
+  &__signup-error-message{
+    color: #c94515;
+  }
 }
 
 .invalid {
@@ -74,11 +78,6 @@
   cursor: pointer;
   background-color: $primary-CTA-color;
   color: white;
-  // @include tablet {
-  //   height: 2.375rem;
-  //   padding: 0 1rem;
-  //   font-size: 0.875rem;
-  // }
 }
 
 .CTA:hover {
