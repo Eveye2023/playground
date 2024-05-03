@@ -1,18 +1,18 @@
-import pencils from "../../assets/images/pencils.png";
 import error_icon from "../../assets/icons/error-24px.svg";
 import BubbleBackground from "../../Components/BubbleBackground/BubbleBackground";
-import "./SignIn.scss"
+import "./SignIn.scss";
 import axios, { AxiosError } from "axios";
 import { SERVER_ENDPOINT } from "../../util";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 interface SignInProps {
-  setToken: (token: string) => void
+  setToken: (token: string) => void;
 }
-function SignIn({setToken} : SignInProps) {
+function SignIn({ setToken }: SignInProps) {
   const navigate = useNavigate();
-  const [ loginErrorMsg, setLoginErrorMsg ] = useState(null);
+  const [loginErrorMsg, setLoginErrorMsg] = useState(null);
   function errorMsgElement() {
     return (
       <div className="form__field-error-msg">
@@ -41,15 +41,15 @@ function SignIn({setToken} : SignInProps) {
     try {
       const response = await axios.post(SERVER_ENDPOINT + "/auth/login", {
         email: event.target.email.value,
-        password: event.target.password.value
+        password: event.target.password.value,
       });
       const { token } = response.data;
-      localStorage.setItem('authToken', token)
+      localStorage.setItem("authToken", token);
       setToken(token);
-      navigate('/');
-    } catch(err: any) {
-      console.log(err)
-      setLoginErrorMsg(err.response.data)
+      navigate("/");
+    } catch (err: any) {
+      console.log(err);
+      setLoginErrorMsg(err.response.data);
     }
   };
 
@@ -70,13 +70,17 @@ function SignIn({setToken} : SignInProps) {
               <input type="password" name="password" id="password" className="form__field" />
               {errorMsgElement()}
             </div>
-            <div className="form__login-error-message" style={{display: loginErrorMsg ? 'block': 'none'}}>
+            <div
+              className="form__login-error-message"
+              style={{ display: loginErrorMsg ? "block" : "none" }}
+            >
+              <img src={error_icon} alt="error icon" />
               {loginErrorMsg}
-              </div>
+            </div>
             <input type="submit" value="Sign In" className="CTA" />
           </form>
           <p>
-            Don't have an account? <a href="">Sign up</a>
+            Don't have an account? <Link to="/SignUp">Sign up</Link>
           </p>
         </div>
       </main>
