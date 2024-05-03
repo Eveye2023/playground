@@ -2,8 +2,17 @@ import pencils from "../../assets/images/pencils.png";
 import error_icon from "../../assets/icons/error-24px.svg";
 import BubbleBackground from "../../Components/BubbleBackground/BubbleBackground";
 import "./SignIn.scss"
+import axios, { AxiosError } from "axios";
+import { SERVER_ENDPOINT } from "../../util";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-function SignIn() {
+interface SignInProps {
+  setToken: (token: string) => void
+}
+function SignIn({setToken} : SignInProps) {
+  const navigate = useNavigate();
+  const [ loginErrorMsg, setLoginErrorMsg ] = useState(null);
   function errorMsgElement() {
     return (
       <div className="form__field-error-msg">
@@ -28,6 +37,20 @@ function SignIn() {
         return;
       }
     }
+    setLoginErrorMsg(null);
+    try {
+      const response = await axios.post(SERVER_ENDPOINT + "/auth/login", {
+        email: event.target.email.value,
+        password: event.target.password.value
+      });
+      const { token } = response.data;
+      localStorage.setItem('authToken', token)
+      setToken(token);
+      navigate('/');
+    } catch(err: any) {
+      console.log(err)
+      setLoginErrorMsg(err.response.data)
+    }
   };
 
   return (
@@ -47,6 +70,9 @@ function SignIn() {
               <input type="password" name="password" id="password" className="form__field" />
               {errorMsgElement()}
             </div>
+            <div className="form__login-error-message" style={{display: loginErrorMsg ? 'block': 'none'}}>
+              {loginErrorMsg}
+              </div>
             <input type="submit" value="Sign In" className="CTA" />
           </form>
           <p>
