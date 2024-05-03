@@ -12,6 +12,7 @@ import "./Header.scss";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { useNavigate } from "react-router-dom";
 
 interface UserInfo {
   id: number;
@@ -23,11 +24,16 @@ interface HeaderProps {
 }
 function Header({ user }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const profile = () => {
+    navigate("profile");
+  };
 
   const logout = () => {
     localStorage.removeItem("authToken");
     window.location.reload();
-  }
+  };
   return (
     <div className="header">
       <Link to="/" className="header__link">
@@ -62,8 +68,8 @@ function Header({ user }: HeaderProps) {
             <List>
               <ListItem disablePadding>
                 <ListItemButton>
-                <i className="fa fa-solid fa-id-badge"></i>
-                  <ListItemText primary="profile" onClick={logout} />
+                  <i className="fa fa-solid fa-id-badge"></i>
+                  <ListItemText primary="profile" onClick={profile} />
                 </ListItemButton>
               </ListItem>
               <ListItem disablePadding>

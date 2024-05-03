@@ -1,0 +1,44 @@
+@use "../../style/varialbles" as *;
+
+.profile {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+
+  padding: 3rem 10%;
+  display: flex;
+  justify-content: center;
+
+  &__form {
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__field {
+    display: flex;
+
+    label {
+      flex-basis: 20%;
+    }
+
+    input {
+      flex: 1;
+    }
+  }
+
+  &__submit {
+    width: 100%;
+    padding: 1rem 0;
+    border: none;
+    background-color: $primary-CTA-color;
+    color: white;
+    align-self: flex-end;
+    cursor:pointer;
+  }
+  &__submit:hover{
+    background:#275080;
+  }
+}

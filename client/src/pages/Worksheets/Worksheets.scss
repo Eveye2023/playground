@@ -124,6 +124,7 @@
 
   &__math-param {
     display: flex;
+    justify-content: center;
     gap: 2rem;
 
     .create-worksheet__label {
@@ -137,13 +138,13 @@
   }
 
   &__range {
-    flex-basis: 33%;
+    flex-basis: 20%;
     display: flex;
     gap: 0.5rem;
   }
 
   &__operator {
-    flex-basis: 33%;
+    flex-basis: 20%;
     display: flex;
     gap: 0.15rem;
   }
@@ -153,6 +154,7 @@
     border:none;
     color:white;
     padding:1rem 3rem;
+    align-self: center;
   }
 }
 
