@@ -1,6 +1,11 @@
 button.print-button {
     width: 4rem;
     height: 4rem;
+    @media print {
+      & {
+        display: none;
+      }
+    }
   }
   span.print-icon, span.print-icon::before, span.print-icon::after, button.print-button:hover .print-icon::after {
     border: solid 4px #333;

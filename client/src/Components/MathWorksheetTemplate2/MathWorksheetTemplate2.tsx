@@ -3,22 +3,64 @@ import logo from "../../assets/images/logo7.png";
 import { range } from "lodash";
 import PrintIcon from "../PrintIcon/PrintIcon";
 import apple_line from "../../assets/images/apple-line3.png";
+import { useState } from "react";
 
-interface MathWorksheetTemplate2Props {
-  operator: "+" | "-";
-  start: number;
-  end: number;
-}
 
-function MathWorksheetTemplate2({ operator, start, end }: MathWorksheetTemplate2Props) {
-  function randomNum() {
-    let num = end - start;
-    return Math.floor(Math.random() * num) + start + 1;
+function MathWorksheetTemplate2() {
+  const [operator,setOperator]= useState("+");
+  const [startNum, setStartNum] = useState(0);
+  const [endNum,setEndNum] = useState(0);
+  const [refresh,setRefresh] = useState(false);
+
+
+  function randomNum(start:number,end:number) {
+    let num = end + 1 - start;
+    return Math.floor(Math.random() * num) + start;
   }
+
+  function submitHandler(event:any){
+    event.preventDefault();
+    setOperator(event.target.operator.value);
+    console.log("operator: ",event.target.operator.value)
+    setStartNum(Number(event.target.start_number.value));
+    console.log("start: ",Number(event.target.start_number.value))
+    setEndNum(Number(event.target.end_number.value));  
+    console.log("start: ",Number(event.target.end_number.value))
+    setRefresh(!refresh);
+  }
+  
 
   return (
     <>
       <main className="main-wrapper">
+      <form className="math-worksheet__form" onSubmit={submitHandler}>
+          <div className="math-worksheet__math-param">
+            <div className="math-worksheet__range">
+              <label htmlFor="start_number" className="math-worksheet__label">
+                Start Number:
+              </label>
+              <input type="number" name="start_number" id="start_number" />
+            </div>
+            <div className="math-worksheet__range">
+              <label htmlFor="end_number" className="math-worksheet__label">
+                End Number:
+              </label>
+              <input type="number" name="end_number" id="end_number" />
+            </div>
+            <div className="math-worksheet__operator">
+              <label htmlFor="operator" className="math-worksheet__label">
+                Operator:
+              </label>
+              <select name="operator" id="operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="÷">÷</option>
+              </select>
+            </div>
+          </div>
+          <input type="submit" value="Create" className="math-worksheet__submit" />
+        </form>
         <div className="math-worksheet2">
           <div className="math-worksheet2__print">
             <PrintIcon />
@@ -37,7 +79,7 @@ function MathWorksheetTemplate2({ operator, start, end }: MathWorksheetTemplate2
                   <div className="math-worksheet2__quest" key={index}>
                     <div>
                       {" "}
-                      {randomNum()} + {randomNum()} ={" "}
+                      {randomNum(startNum,endNum)} + {randomNum(startNum,endNum)} ={" "}
                     </div>
                     <div className="math-worksheet2__answer-holder">
                       <img src={apple_line} alt="apple line" />{" "}

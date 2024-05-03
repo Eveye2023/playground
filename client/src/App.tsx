@@ -21,6 +21,13 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [token, setToken] = useState("");
   const [userInfo, setUserInfo] = useState(null);
+
+  const [mathWorksheet, setMathWorksheet]= useState("");
+  const [startNum, setStartNum]= useState(0);
+  const [endNum, setEndNum] = useState(0);
+  const [operator,setOperator] = useState("");
+
+  
   useEffect(() => {
     const getUserInfo = async (authToken: string) => {
       try {
@@ -56,7 +63,10 @@ function App() {
           <Route path="games/memory-game" element={<MemoryGame />} />
           <Route path="worksheets" element={<Worksheets />} />
           <Route path="worksheets/handwriting" element={<HandwritingWorksheet />} />
-          <Route path="math" element={<MathWorksheetTemplate2 operator="+" start={1} end={7} />} />
+          {/* <Route path="worksheets/template1" /> */}
+          <Route path="worksheets/math/template1" element={<MathWorksheetTemplate1 />} />
+          <Route path="worksheets/math/template2" element={<MathWorksheetTemplate2 />} />
+          <Route path="worksheets/math/template3" element={<MathWorksheetTemplate3 />} />
         </Routes>
       </BrowserRouter>
       {/* </Body> */}
