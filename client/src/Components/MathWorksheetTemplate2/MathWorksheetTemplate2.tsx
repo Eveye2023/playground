@@ -21,11 +21,8 @@ function MathWorksheetTemplate2() {
   function submitHandler(event:any){
     event.preventDefault();
     setOperator(event.target.operator.value);
-    console.log("operator: ",event.target.operator.value)
     setStartNum(Number(event.target.start_number.value));
-    console.log("start: ",Number(event.target.start_number.value))
     setEndNum(Number(event.target.end_number.value));  
-    console.log("start: ",Number(event.target.end_number.value))
     setRefresh(!refresh);
   }
   
@@ -79,7 +76,7 @@ function MathWorksheetTemplate2() {
                   <div className="math-worksheet2__quest" key={index}>
                     <div>
                       {" "}
-                      {randomNum(startNum,endNum)} + {randomNum(startNum,endNum)} ={" "}
+                      {randomNum(startNum,endNum)} {operator} {randomNum(startNum,endNum)} ={" "}
                     </div>
                     <div className="math-worksheet2__answer-holder">
                       <img src={apple_line} alt="apple line" />{" "}
