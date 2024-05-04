@@ -62,13 +62,16 @@ const cards = [
 ];
 
 function MemoryGame() {
-  const [mode, setMode] = useState(Mode.MEDIUM);
+  const [mode, setMode] = useState(Mode.EASY);
 
   const [dimensions, setDimensions] = useState([0, 0]);
   const [flippedCard1, setFlippedCard1] = useState(-1);
   const [flippedCard2, setFlippedCard2] = useState(-1);
   const [shuffledCards, setShuffledCards] = useState([] as string[]);
   const [successfulGuesses, setSuccessfulGuesses] = useState([] as number[]);
+
+  const [step, setStep] = useState(0);
+  const [score,setScore] = useState(0);
 
   useEffect(() => {
     setSuccessfulGuesses([]);
@@ -102,14 +105,21 @@ function MemoryGame() {
         ((index: number) => shuffledCards[index])(index)
       ) {
         // match!
+  
+        setScore(score + ((10 - step) * 10));
+        setStep(0);
+
         console.log("match");
         const newSuccessfulGuesses = [...successfulGuesses, flippedCard1, index];
         setSuccessfulGuesses(newSuccessfulGuesses);
         if (newSuccessfulGuesses.length === rows * cols) {
           console.log("all done!");
+          setScore(0);
+          setStep(0);
         }
       } else {
         console.log("not match");
+        setStep(step + 1);
       }
       setTimeout(() => {
         setFlippedCard1(-1);
@@ -127,6 +137,15 @@ function MemoryGame() {
     } else {
       return "";
     }
+  }
+  
+  function restart(){
+    // setDimensions([0,0]);
+    setFlippedCard1(-1);
+    setFlippedCard2(-1);
+    setSuccessfulGuesses([]);
+    setScore(0);
+    setStep(0);
   }
 
   window.scrollTo(0, document.body.scrollHeight);
@@ -152,11 +171,11 @@ function MemoryGame() {
           </div>
         </div>
         <div className="memory-game__cards">
-          <div className="memory-game__cards-header">
+          {/* <div className="memory-game__cards-header">
             {mode === "EASY" ? <img src={easy_mode} alt="easy mode" /> : ""}
             {mode === "MEDIUM" ? <img src={medium_mode} alt="medium mode" /> : ""}
             {mode === "HARD" ? <img src={hard_mode} alt="hard mode" /> : ""}
-          </div>
+          </div> */}
 
           {range(0, rows).map((rowId) => (
             <div className="memory-game__row" key={rowId}>
@@ -183,6 +202,13 @@ function MemoryGame() {
               ))}
             </div>
           ))}
+        </div>
+        <div className="memory-game__board">
+          <div className="memory-game__score">
+            Score: {score}
+          </div>
+          <button className="memory-game__game-button" onClick={()=>restart()}><i className="fa fa-solid fa-backward"></i> Back</button>
+          <button className="memory-game__game-button" onClick={()=>restart()}>Restart</button>
         </div>
       </div>
     </>
