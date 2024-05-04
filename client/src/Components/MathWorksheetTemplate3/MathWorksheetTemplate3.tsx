@@ -21,11 +21,8 @@ function MathWorksheetTemplate3() {
   function submitHandler(event:any){
     event.preventDefault();
     setOperator(event.target.operator.value);
-    console.log("operator: ",event.target.operator.value)
     setStartNum(Number(event.target.start_number.value));
-    console.log("start: ",Number(event.target.start_number.value))
     setEndNum(Number(event.target.end_number.value));  
-    console.log("start: ",Number(event.target.end_number.value))
     setRefresh(!refresh);
   }
   

@@ -4,11 +4,6 @@ import { range } from "lodash";
 import PrintIcon from "../PrintIcon/PrintIcon";
 import { useState } from "react";
 
-interface MathWorksheetTemplate1Props {
-  operator: "+" | "-" | "*" | "÷";
-  start: number;
-  end: number;
-}
 
 function MathWorksheetTemplate1() {
 
@@ -25,11 +20,8 @@ function MathWorksheetTemplate1() {
 function submitHandler(event:any){
   event.preventDefault();
   setOperator(event.target.operator.value);
-  console.log("operator: ",event.target.operator.value)
   setStartNum(Number(event.target.start_number.value));
-  console.log("start: ",Number(event.target.start_number.value))
   setEndNum(Number(event.target.end_number.value));  
-  console.log("start: ",Number(event.target.end_number.value))
   setRefresh(!refresh);
 }
 
@@ -81,6 +73,8 @@ function submitHandler(event:any){
           <h1 className="math-worksheet__title">
             {operator === "+" ? "Addition " : null}
             {operator === "-" ? "Subtraction " : null}
+            {operator === "*" ? "Multiplication " : null}
+            {operator === "÷" ? "Division " : null}
             from {startNum} to {endNum}
           </h1>
           <div className="math-worksheet__content">
