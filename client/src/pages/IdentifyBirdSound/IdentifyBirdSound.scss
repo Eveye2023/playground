@@ -1,0 +1,29 @@
+.identify-bird-sound {
+    &__play-button-container {
+
+    }
+
+    &__option-container {
+        display: flex;
+        gap: 2rem;
+        justify-content: space-around;
+    }
+
+    &__option {
+        border: 1px solid green;
+        padding: 0.5rem 5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        &:hover {
+            border-color: red;
+        }
+    }
+
+    &__image-container {
+        width: 100%;
+
+        img {
+            width: 100%;
+        }
+    }
+}
