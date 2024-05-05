@@ -16,6 +16,7 @@ import { useEffect, useState } from "react";
 import { SERVER_ENDPOINT } from "./util";
 import axios from "axios";
 import Profile from "./pages/Profile/Profile";
+import IdentifyBirdSound from "./pages/IdentifyBirdSound/IdentifyBirdSound";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -58,7 +59,7 @@ function App() {
           <Route path="signup" element={<SignUp />} />
           <Route path="signin" element={<SignIn setToken={setToken} />} />
           <Route path="profile" element={<Profile user={userInfo}/> }/>
-          <Route path="activities" />
+          <Route path="activities" element={<IdentifyBirdSound />}/>
           <Route path="games" element={<GameSelector />} />
           <Route path="games/memory-game" element={<MemoryGame />} />
           <Route path="worksheets" element={<Worksheets />} />
