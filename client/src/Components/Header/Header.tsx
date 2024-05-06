@@ -30,6 +30,18 @@ function Header({ user }: HeaderProps) {
     navigate("profile");
   };
 
+  const games = () => {
+    navigate("/games");
+  };
+
+  const worksheets = () => {
+    navigate("/worksheets");
+  };
+
+  const activities = () => {
+    navigate("/activities");
+  };
+
   const logout = () => {
     localStorage.removeItem("authToken");
     window.location.reload();
@@ -68,12 +80,31 @@ function Header({ user }: HeaderProps) {
             <List>
               <ListItem disablePadding>
                 <ListItemButton>
-                  <i className="fa fa-solid fa-id-badge"></i>
-                  <ListItemText primary="profile" onClick={profile} />
+                <i className="fa fa-user" aria-hidden="true"></i>&nbsp;
+                  <ListItemText primary="Profile" onClick={profile} />
                 </ListItemButton>
               </ListItem>
               <ListItem disablePadding>
                 <ListItemButton>
+                <i className="fa fa-gamepad" aria-hidden="true"></i>&nbsp;
+                  <ListItemText primary="Games" onClick={games} />
+                </ListItemButton>
+              </ListItem>
+              <ListItem disablePadding>
+                <ListItemButton>
+                <i className="fa fa-th-list" aria-hidden="true"></i>&nbsp;
+                  <ListItemText primary="Worksheets" onClick={worksheets} />
+                </ListItemButton>
+              </ListItem>
+              <ListItem disablePadding>
+                <ListItemButton>
+                <i className="fa fa-trophy" aria-hidden="true"></i>&nbsp;
+                  <ListItemText primary="Activities" onClick={activities} />
+                </ListItemButton>
+              </ListItem>
+              <ListItem disablePadding> 
+                <ListItemButton>
+                <i className="fa fa-sign-out" aria-hidden="true"></i>&nbsp;
                   <ListItemText primary="Logout" onClick={logout} />
                 </ListItemButton>
               </ListItem>
