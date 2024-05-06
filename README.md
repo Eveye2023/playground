@@ -62,9 +62,19 @@ I used to spend a lot of time to find a approperiate worksheet and activities fo
 ### Mockups
 
 #### Home Page
-![](home.png)
-
-
+![](1.home.png)
+#### Game Pages
+![](2.0-game_page.png)
+![](2.1-memory_game_selector.png)
+![](2.2-memory_game_page.png)
+#### Worksheet Pages
+![](3.0-worksheet.png)
+![](3.1-worksheet_handwriting.png)
+![](3.3-worksheet_math_template1.png)
+![](3.4-worksheet_math_template2.png)
+![](3.5-worksheet_math_template3.png)
+#### Activity Pages
+![](4-activity_page.png)
 ### Data
 
 
