@@ -7,18 +7,21 @@ Offering study activities, worksheet customization and small games for kids unde
 
 ### Problem
 
-I used to spend a lot of time to find a approperiate worksheet and study activities for my daughter, but didn't find a website with all these functions, and most these kind of websites are full with ads and popups.
+I used to spend a lot of time to find a approperiate worksheet and activities for my daughter, but didn't find a website with all these functions, and most these kind of websites are full with ads and popups.
 
 ### User Profile
 
-- Children play with small games and do study activities in this app. A time limit lock is set for these games and activities to avoid spending so much time on computer.
-- Parents can use the worksheet customization page to make the worksheet they need and print or download it.
+- Children play with small games and do activities in this app. 
+- Parents can use the worksheet page to customize the worksheet they need and print or download it.
 
 ### Features
 
 - login 
-- games - At first I will put 1 or 2 small games in this app, and will add more in the future.
-- worksheet customization - template will be offered to choose. For math, parent can choose number range, operator etc.
+- games - At first I put a memory game in this app, it has 3 levels and 3 theme for choosing. And the score will be presented in real time. More small games will be added in the future.
+- worksheet customization
+  - Handwriting worksheet accept input, parents can input the words or letters they need.
+  - Three math templates are provided. Each one support customazing number range and operator
+- Activities -One bird guessing game is implemented. More activities will be added in the future.
 
 ## Implementation
 
@@ -43,11 +46,18 @@ I used to spend a lot of time to find a approperiate worksheet and study activit
 ### Sitemap
 
 - Home page
+  - SignIn
+  - LogIn
+  - Profile
 - Game page
+  - Memory game
 - Worksheet page
+  - Handwriting worksheet
+  - Math worksheet template1
+  - Math worksheet template2
+  - Math worksheet template3
 - Activity page
-- Register
-- Login
+
 
 ### Mockups
 
@@ -60,9 +70,10 @@ I used to spend a lot of time to find a approperiate worksheet and study activit
 
 ### Endpoints
 
-- **GET /user**
-- **POST /user**
-- **PUT /user**
+- **POST /auth/signup**
+- **POST /auth/signin**
+- **GET /profile**
+- **PUT /profile**
 
 
 ### Auth
@@ -101,5 +112,7 @@ I used to spend a lot of time to find a approperiate worksheet and study activit
 - DEMO DAY
 
 ## Nice-to-haves
-- activities - including math activity, sight word activity and some science activity
 - time lock - the screen will be locked if the user play games or activities more than 15 minites. Parents can unlock it with password.
+- Save game score and show the podium
+- User save their customized worksheet, make it public and let others to view, likes and download
+- activities -science activity, math activity, sight word activity and more 
