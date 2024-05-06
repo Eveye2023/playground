@@ -8,7 +8,7 @@
 
 .math-worksheet {
   background-color: white;
-  padding: 2rem 10% 1rem;
+  padding: 2rem 1rem 1rem;
   font-family: Itim;
   width:210mm;
   margin:auto;
@@ -82,6 +82,7 @@
   &__title {
     text-align: center;
     font-size: 3rem;
+    margin:1rem 0;
   }
 
   &__content {

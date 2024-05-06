@@ -72,7 +72,7 @@ function MathWorksheetTemplate2() {
           <div className="math-worksheet2__content">
             {range(0, 3).map((index1) => (
               <div className="math-worksheet2__column" key={index1}>
-                {range(0, 9).map((index) => (
+                {range(0, 8).map((index) => (
                   <div className="math-worksheet2__quest" key={index}>
                     <div>
                       {" "}

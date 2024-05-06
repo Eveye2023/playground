@@ -30,6 +30,9 @@
   }
 
   &__title {
+    display:flex;
+    align-items: center;
+    height:5rem;
     font-size: 1.5rem;
     flex-basis: 50%;
     border-left: 5px solid black;

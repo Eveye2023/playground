@@ -80,7 +80,7 @@ function submitHandler(event:any){
           <div className="math-worksheet__content">
             {range(0, 2).map((index1) => (
               <div className="math-worksheet__column" key={index1}>
-                {range(0, 13).map((index) => (
+                {range(0, 10).map((index) => (
                   <div className="math-worksheet__quest" key={index}>
                     {randomNum(startNum,endNum)} {operator} {randomNum(startNum,endNum)} =
                     <span className="math-worksheet__answer-holder"> </span>
