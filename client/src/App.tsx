@@ -58,7 +58,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="signin" element={<SignIn setToken={setToken} />} />
-          <Route path="profile" element={<Profile user={userInfo}/> }/>
+          <Route path="profile" element={<Profile user={userInfo} setUser={setUserInfo}/> }/>
           <Route path="activities" element={<IdentifyBirdSound />}/>
           <Route path="games" element={<GameSelector />} />
           <Route path="games/memory-game" element={<MemoryGame />} />

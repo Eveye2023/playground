@@ -1,9 +1,9 @@
 import axios from "axios";
 import "./Profile.scss";
-import error_icon from "../../assets/icons/error-24px.svg";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { SERVER_ENDPOINT } from "../../util";
+import { Link } from "react-router-dom";
 
 interface UserInfo {
   id: number;
@@ -13,15 +13,22 @@ interface UserInfo {
 
 interface ProfileProps {
   user: UserInfo | null;
+  setUser: any;
 }
 
-function Profile({ user }: ProfileProps) {
-  const navigate = useNavigate();
+function Profile({ user, setUser }: ProfileProps) {
+  // const navigate = useNavigate();
   const [saveMsg, setSaveMsg] = useState("");
 
   if (!user) {
-    setTimeout(() => navigate("/signin"));
-    return <p>Please log in to see your profile</p>;
+    // setTimeout(() => navigate("/signin"));
+    return (
+      <main className="main-wrapper">
+        <p className="redirect-msg">
+          Please <Link to="/signin">log in</Link> to see your profile
+        </p>
+      </main>
+    );
   }
 
   let timeoutId: any;
@@ -49,6 +56,12 @@ function Profile({ user }: ProfileProps) {
           },
         }
       );
+      const newUser = {
+        id: user.id,
+        email: event.target.email.value,
+        name: event.target.name.value,
+      };
+      setUser(newUser);
       setSaveMsg("Saved sucessfully!");
       timeoutId = setTimeout(() => setSaveMsg(""), 2000);
     } catch (err: any) {
