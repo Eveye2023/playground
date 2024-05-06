@@ -117,13 +117,13 @@ function IdentifyBirdSound() {
             </div>
           </Modal.Body>
         </Modal>
-        <h2>Guess which bird makes this sound</h2>
+        <h2 className="identify-bird-sound__ques">Guess which bird makes this sound</h2>
         <div className="identify-bird-sound__play-button-container">
-          <Button onClick={playing ? pauseAudio : playAudio}>
+          <button onClick={playing ? pauseAudio : playAudio} className="identify-bird-sound__play-btn"> 
             {playing ? <PauseCircle /> : <PlayCircle />}
-          </Button>
+          </button>
         </div>
-        {showNames ? (
+        {/* {showNames ? ( */}
           <div className="identify-bird-sound__option-container">
             <div className="identify-bird-sound__option" onClick={() => guessBird(0)}>
               <h3>{birds[0].name}</h3>
@@ -135,7 +135,7 @@ function IdentifyBirdSound() {
               <h3>{birds[2].name}</h3>
             </div>
           </div>
-        ) : null}
+        {/* ) : null} */}
       </div>
     </main>
   );
