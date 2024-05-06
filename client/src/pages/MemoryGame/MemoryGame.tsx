@@ -6,6 +6,11 @@ import easy_mode from "../../assets/images/easy-mode.png";
 import medium_mode from "../../assets/images/medium-mode.png";
 import hard_mode from "../../assets/images/hard-mode.png";
 import BubbleBackground from "../../Components/BubbleBackground/BubbleBackground";
+import { Modal } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
+const FRUITS_PATH = "/images/fruits/";
+const ANIMAL_PATH = "/images/animals/";
 
 enum Mode {
   EASY = "EASY",
@@ -14,6 +19,15 @@ enum Mode {
 }
 const allModes = () =>
   Object.keys(Mode).filter((item) => {
+    return isNaN(Number(item));
+  });
+enum Theme {
+  ICON = "ICON",
+  ANIMAL = "ANIMAL",
+  FRUIT = "FRUIT",
+}
+const allThemes = () =>
+  Object.keys(Theme).filter((item) => {
     return isNaN(Number(item));
   });
 
@@ -28,7 +42,7 @@ const getDimensions = (mode: Mode) => {
   }
 };
 
-const cards = [
+const icons = [
   "fa-envelope",
   "fa-car",
   "fa-hand-o-right",
@@ -61,28 +75,48 @@ const cards = [
   "fa-bolt",
 ];
 
+const fruits = range(1, 19).map((i) => `${i}.png`);
+const animals = range(1, 19).map((i) => `${i}.png`);
+
 function MemoryGame() {
   const [mode, setMode] = useState(Mode.EASY);
+  const [theme, setTheme] = useState(Theme.ICON);
 
   const [dimensions, setDimensions] = useState([0, 0]);
   const [flippedCard1, setFlippedCard1] = useState(-1);
   const [flippedCard2, setFlippedCard2] = useState(-1);
   const [shuffledCards, setShuffledCards] = useState([] as string[]);
   const [successfulGuesses, setSuccessfulGuesses] = useState([] as number[]);
+  const [showOptionModal, setShowOptionModal] = useState(true);
+  const [showResultModal, setShowResultModal] = useState(false);
 
   const [step, setStep] = useState(0);
-  const [score,setScore] = useState(0);
+  const [score, setScore] = useState(0);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setSuccessfulGuesses([]);
     const [rows, cols] = getDimensions(mode);
     setDimensions([rows, cols]);
+    let cards;
+    switch (theme) {
+      case Theme.ICON:
+        cards = icons;
+        break;
+      case Theme.FRUIT:
+        cards = fruits;
+        break;
+      case Theme.ANIMAL:
+        cards = animals;
+        break;
+    }
     const randomCards = shuffle(cards).slice(0, (rows * cols) / 2);
     const gameCards = [...randomCards, ...randomCards];
     setShuffledCards(shuffle(gameCards));
     setFlippedCard1(-1);
     setFlippedCard2(-1);
-  }, [mode]);
+  }, [mode, theme]);
 
   const rows = dimensions[0];
   const cols = dimensions[1];
@@ -105,8 +139,8 @@ function MemoryGame() {
         ((index: number) => shuffledCards[index])(index)
       ) {
         // match!
-  
-        setScore(score + ((10 - step) * 10));
+
+        setScore(score + (10 - step) * 10);
         setStep(0);
 
         console.log("match");
@@ -114,8 +148,7 @@ function MemoryGame() {
         setSuccessfulGuesses(newSuccessfulGuesses);
         if (newSuccessfulGuesses.length === rows * cols) {
           console.log("all done!");
-          setScore(0);
-          setStep(0);
+          setShowResultModal(true);
         }
       } else {
         console.log("not match");
@@ -128,6 +161,12 @@ function MemoryGame() {
     }
   }
 
+  // function cancel() {}
+
+  function startGame() {
+    setShowOptionModal(false);
+  }
+
   function getMemoryGameCardImageClass(index: number) {
     if (successfulGuesses.includes(index)) {
       return "memory-game__card-image-success";
@@ -138,8 +177,8 @@ function MemoryGame() {
       return "";
     }
   }
-  
-  function restart(){
+
+  function restart() {
     // setDimensions([0,0]);
     setFlippedCard1(-1);
     setFlippedCard2(-1);
@@ -148,27 +187,121 @@ function MemoryGame() {
     setStep(0);
   }
 
+  function goback() {
+    navigate("/games");
+  }
+
   window.scrollTo(0, document.body.scrollHeight);
+
+  function renderCard(index: number): import("react").ReactNode {
+    switch (theme) {
+      case Theme.ICON:
+        return <i className={"fa fa-thin fa-4x " + shuffledCards[index]}></i>;
+      case Theme.FRUIT:
+        return (
+          <img
+            src={`${process.env.PUBLIC_URL}${FRUITS_PATH}${shuffledCards[index]}`}
+            alt={`Fruit option ${shuffledCards[index]}`}
+          />
+        );
+      case Theme.ANIMAL:
+        return (
+          <img
+            src={`${process.env.PUBLIC_URL}${ANIMAL_PATH}${shuffledCards[index]}`}
+            alt={`Animal option ${shuffledCards[index]}`}
+          />
+        );
+    }
+  }
+
+  function hideResultModal() {
+    setScore(0);
+    setStep(0);
+    setShowResultModal(false);
+  }
 
   return (
     <>
       <BubbleBackground />
       <div className="memory-game">
-        <div className="memory-game__mode-wrapper">
-          <div className="memory-game__mode-header">
-            {/* <img src={mode_selector} alt="mode selection" /> */}
-          </div>
-          <div className="memory-game__selector">
-            {allModes().map((modeOption) => (
-              <div
-                className={"mode-selector " + (modeOption === mode ? "active" : "")}
-                key={modeOption}
-                onClick={() => setMode(modeOption as Mode)}
-              >
-                {modeOption}
+        <Modal
+          show={showResultModal}
+          onHide={() => {
+            hideResultModal();
+            restart();
+          }}
+        >
+          <Modal.Header>
+            <h1>You win!</h1>
+          </Modal.Header>
+          <Modal.Body>
+            <h3>Your score is {score}</h3>
+          </Modal.Body>
+          <Modal.Footer>
+            <button
+              className="memory-game__game-button"
+              onClick={() => {
+                hideResultModal();
+                setShowOptionModal(true);
+              }}
+            >
+              Start over
+            </button>
+            <button
+              className="memory-game__game-button"
+              onClick={() => {
+                hideResultModal();
+                restart();
+              }}
+            >
+              Try again
+            </button>
+          </Modal.Footer>
+        </Modal>
+        <Modal show={showOptionModal} keyboard={false}>
+          {/* <Modal.Header>
+
+          </Modal.Header> */}
+          <Modal.Body>
+            <div>
+              <h3 className="memory-game__selector-title">Choose Mode</h3>
+              <div className="memory-game__selector">
+                {allModes().map((modeOption) => (
+                  <div
+                    className={"btn-neon " + (modeOption === mode ? "active" : "")}
+                    key={modeOption}
+                    onClick={() => setMode(modeOption as Mode)}
+                  >
+                    {modeOption}
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+            <div>
+              <h3 className="memory-game__selector-title">Choose Theme</h3>
+              <div className="memory-game__selector">
+                {allThemes().map((themeOption) => (
+                  <div
+                    className={"btn-neon " + (themeOption === theme ? "active" : "")}
+                    key={themeOption}
+                    onClick={() => setTheme(themeOption as Theme)}
+                  >
+                    {themeOption}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <button className="memory-game__game-button" onClick={() => startGame()}>
+              Start
+            </button>
+          </Modal.Footer>
+        </Modal>
+        <div className="memory-game__left-controller">
+          <button className="memory-game__game-button" onClick={goback}>
+            <i className="fa fa-solid fa-backward"></i> Back
+          </button>
         </div>
         <div className="memory-game__cards">
           {/* <div className="memory-game__cards-header">
@@ -190,12 +323,7 @@ function MemoryGame() {
                       "memory-game__card-image " + getMemoryGameCardImageClass(rowId * cols + colId)
                     }
                   >
-                    <i
-                      className={
-                        "fa fa-thin fa-4x " +
-                        ((index: number) => shuffledCards[index])(rowId * cols + colId)
-                      }
-                    ></i>
+                    {renderCard(rowId * cols + colId)}
                   </div>
                 </div>
                 //   {shuffledCards[rowId*cols + colId]}
@@ -204,11 +332,10 @@ function MemoryGame() {
           ))}
         </div>
         <div className="memory-game__board">
-          <div className="memory-game__score">
-            Score: {score}
-          </div>
-          <button className="memory-game__game-button" onClick={()=>restart()}><i className="fa fa-solid fa-backward"></i> Back</button>
-          <button className="memory-game__game-button" onClick={()=>restart()}>Restart</button>
+          <div className="memory-game__score">Score: {score}</div>
+          <button className="memory-game__game-button" onClick={restart}>
+            Restart
+          </button>
         </div>
       </div>
     </>
