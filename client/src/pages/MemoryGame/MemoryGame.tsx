@@ -127,13 +127,11 @@ function MemoryGame() {
     }
     if (-1 === flippedCard1) {
       setFlippedCard1(index);
-      console.log(((index: number) => shuffledCards[index])(index));
     } else if (-1 === flippedCard2) {
       if (flippedCard2 === index) {
         return;
       }
       setFlippedCard2(index);
-      console.log(((index: number) => shuffledCards[index])(index));
       // determine if 2 cards match
       if (
         ((index: number) => shuffledCards[index])(flippedCard1) ===

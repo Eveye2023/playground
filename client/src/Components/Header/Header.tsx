@@ -4,7 +4,6 @@ import {
   List,
   ListItem,
   ListItemButton,
-  ListItemIcon,
   ListItemText,
 } from "@mui/material";
 import logo from "../../assets/images/logo7.png";
@@ -55,12 +54,10 @@ function Header({ user }: HeaderProps) {
       </Link>
       <div className="header__nav">
         {user ? (
-          // <Link to="profile" className="header__link">
           <div>
             <i className="fa fa-solid fa-user"></i> {user.name || user.email}
           </div>
         ) : (
-          // </Link>
           <Link to="signin" className="header__link">
             <div>
               <i className="fa fa-solid fa-user"></i> Login

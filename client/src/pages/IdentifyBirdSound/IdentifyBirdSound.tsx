@@ -78,12 +78,9 @@ function IdentifyBirdSound() {
   }
 
   function guessBird(index: number): void {
-    console.log("Guess:", birds[index]);
     if (birds[index].name === randomBird.name) {
-      console.log("Guess is correct!");
       showGuessCorrect(true);
     } else {
-      console.log(`Guess is wrong, should be ${randomBird.name}`);
       showGuessCorrect(false);
     }
     setShowResultModal(true);

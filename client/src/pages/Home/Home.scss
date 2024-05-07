@@ -23,14 +23,12 @@
     box-sizing: border-box;
     color: #ffffff;
     cursor: pointer;
-    //   display: inline-block;
     display: block;
     font-family: din-round, sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: 0.125rem;
     line-height: 8rem;
-    //   width:10rem;
     margin: 0;
     outline: none;
     overflow: visible;
@@ -84,23 +82,23 @@
     background: none;
   }
 
-  &__worksheets{
+  &__worksheets {
     background-color: #c5b012;
   }
 
-  &__worksheets:after{
+  &__worksheets:after {
     background-color: #e0c712;
   }
 
-  &__activities{
+  &__activities {
     background-color: #89ae0a;
   }
 
-  &__activities:after{
+  &__activities:after {
     background-color: #99c30a;
   }
 }
 
-.link{
+.link {
   text-decoration: none;
 }

@@ -1,8 +1,7 @@
 @use "../../style/varialbles" as *;
 @use "../../style/typography" as *;
 
-
-.main-wrapper{
+.main-wrapper {
   background-color: white;
 }
 
@@ -10,11 +9,11 @@
   background-color: white;
   padding: 2rem 1rem 1rem;
   font-family: Itim;
-  width:210mm;
-  margin:auto;
+  width: 210mm;
+  margin: auto;
 
   &__form {
-    padding:3rem 10% 0;
+    padding: 3rem 10% 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,40 +25,37 @@
       }
     }
 
-    input,select{
-      width:10rem;
+    input,
+    select {
+      width: 10rem;
     }
   }
 
-  &__math-param{
-    display:flex;
-    gap:2rem;
+  &__math-param {
+    display: flex;
+    gap: 2rem;
   }
 
-  &__range, &__operator{
-    display:flex;
-    gap:0.5rem;
+  &__range,
+  &__operator {
+    display: flex;
+    gap: 0.5rem;
   }
 
-  &__submit{
+  &__submit {
     align-self: center;
-    border:none;
-    padding:1rem 3rem;
+    border: none;
+    padding: 1rem 3rem;
     background-color: $primary-CTA-color;
-    color:white;
+    color: white;
   }
 
-  &__submit:hover{
+  &__submit:hover {
     background-color: $primary-CTA-Hover-color;
   }
 
-  // &__label {
-  //   font-weight: 600;
-  //   flex-basis: 15%;
-  // }
-
-  &__print{
-    display:flex;
+  &__print {
+    display: flex;
     justify-content: flex-end;
   }
 
@@ -82,7 +78,7 @@
   &__title {
     text-align: center;
     font-size: 3rem;
-    margin:1rem 0;
+    margin: 1rem 0;
   }
 
   &__content {
@@ -94,7 +90,6 @@
     gap: 1rem;
   }
   &__column {
-    // flex-basis: 50%;
     display: flex;
     flex-direction: column;
     gap: 2rem;

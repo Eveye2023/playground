@@ -1,7 +1,7 @@
 @use "../../style/varialbles" as *;
 @use "../../style/typography" as *;
 
-.main-wrapper{
+.main-wrapper {
   background-color: white;
 }
 .math-worksheet3 {
@@ -9,8 +9,7 @@
   padding: 1rem 0;
   font-family: Itim;
   width: 210mm;
-  margin:auto;
-  // box-sizing: border-box;
+  margin: auto;
 
   &__print {
     display: flex;
@@ -18,38 +17,37 @@
   }
 
   &__header {
-    margin:0;
-    border:5px solid black;
+    margin: 0;
+    border: 5px solid black;
     display: flex;
     align-items: center;
     gap: 1rem;
   }
 
-  &__logo{
+  &__logo {
     flex-basis: 25%;
   }
 
   &__title {
-    display:flex;
+    display: flex;
     align-items: center;
-    height:5rem;
+    height: 5rem;
     font-size: 1.5rem;
     flex-basis: 50%;
     border-left: 5px solid black;
     border-right: 5px solid black;
     padding-left: 1rem;
-
   }
-  &__name{
+  &__name {
     flex-basis: 25%;
   }
- 
-  &__instruction{
-    padding:1rem 0;
+
+  &__instruction {
+    padding: 1rem 0;
     font: 1rem;
     text-align: center;
-    border-left:5px solid black;
-    border-right:5px solid black;
+    border-left: 5px solid black;
+    border-right: 5px solid black;
   }
 
   &__content {
@@ -61,32 +59,27 @@
     border: 5px solid black;
   }
 
- 
-
   &__quest {
     display: flex;
     align-items: center;
     justify-content: space-around;
     gap: 0.5rem;
     border-bottom: 5px solid black;
-    padding:1rem 0;
+    padding: 1rem 0;
 
-    img{
-      width:65%;
+    img {
+      width: 65%;
     }
   }
 
-  &__mathmatic{
+  &__mathmatic {
     display: flex;
-    gap:0.5rem;
-    // border-left:5px solid black;
+    gap: 0.5rem;
   }
 
   &__answer-holder {
-   height:3rem;
-   width:3rem;
-   border: 1px solid gray;
+    height: 3rem;
+    width: 3rem;
+    border: 1px solid gray;
   }
-
-  }
-
+}

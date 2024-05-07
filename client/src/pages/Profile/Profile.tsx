@@ -17,11 +17,9 @@ interface ProfileProps {
 }
 
 function Profile({ user, setUser }: ProfileProps) {
-  // const navigate = useNavigate();
   const [saveMsg, setSaveMsg] = useState("");
 
   if (!user) {
-    // setTimeout(() => navigate("/signin"));
     return (
       <main className="main-wrapper">
         <p className="redirect-msg">

@@ -21,7 +21,7 @@ router.post('/signup', async (req, res) => {
     try {
         //Check if user already exist
         const response = await knex('user').where({ email: email }).first()
-        console.log(response);
+        // console.log(response);
         if(response){
             res.status(400).send("User already exist.");
             return;
