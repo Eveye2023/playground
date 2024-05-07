@@ -7,7 +7,7 @@ Offering study activities, worksheet customization and small games for kids unde
 
 ### Problem
 
-I used to spend a lot of time to find a approperiate worksheet and activities for my daughter, but didn't find a website with all these functions, and most these kind of websites are full with ads and popups.
+I used to spend a lot of time to find approperiate worksheets and activities for my daughter, but didn't find a website with all these functions, and most these kind of websites are full with ads and popups.
 
 ### User Profile
 
@@ -18,35 +18,43 @@ I used to spend a lot of time to find a approperiate worksheet and activities fo
 
 - login 
 - games - At first I put a memory game in this app, it has 3 levels and 3 theme for choosing. And the score will be presented in real time. More small games will be added in the future.
-- worksheet customization
-  - Handwriting worksheet accept input, parents can input the words or letters they need.
-  - Three math templates are provided. Each one support customazing number range and operator
+- worksheet generator
+  - Handwriting worksheet accepts input, parents can input the words or letters they need, font size and spacing are adjustable.
+  - Three math templates are provided. Each one support customazing number range and operator.
 - Activities -One bird guessing game is implemented. More activities will be added in the future.
+- profile page - logged in user can view their profile page and modify it.
 
 ## Implementation
 
 ### Tech Stack
 
 - React
-- JavaScript
+- TypeScript
 - MySQL
 - Express
 - Client libraries: 
     - react
     - react-router
     - axios
+    - lodash
+    - Material UI
+    - Bootstrap
 - Server libraries:
     - knex
     - express
+    - JWT
     - bcrypt for password hashing
 
 ### APIs
-
+- **POST /auth/signup**
+- **POST /auth/signin**
+- **GET /profile**
+- **PUT /profile**
 
 ### Sitemap
 
 - Home page
-  - SignIn
+  - SignUp
   - LogIn
   - Profile
 - Game page
@@ -76,7 +84,7 @@ I used to spend a lot of time to find a approperiate worksheet and activities fo
 #### Activity Pages
 ![](4-activity_page.png)
 ### Data
-
+![](database.png)
 
 ### Endpoints
 
@@ -106,13 +114,23 @@ I used to spend a lot of time to find a approperiate worksheet and activities fo
 - Feature: Home page
 
 - Feature: Create account
-    - Implement register page + form
-    - Create POST /users/register endpoint
+    - Implement sign up page + form
+    - Create POST /auth/signup endpoint
 
 - Feature: Login
     - Implement login page + form
-    - Create POST /users/login endpoint
+    - Create POST /auth/signin endpoint
 
+- Feature: Game
+    - Implement memory game
+ 
+- Feature: Worksheets
+    - Implement handwriting worksheet
+    - Implement math worksheets
+
+- Feature: Activity
+    - Implement bird guessing activity
+    
 - Feature: Implement JWT tokens
     - Server: Update expected requests / responses on protected endpoints
     - Client: Store JWT in local storage, include JWT on axios calls
