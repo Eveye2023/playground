@@ -76,7 +76,7 @@ function SignUp() {
             <input type="submit" value="Sign Up" className="CTA" />
           </form>
           <p>
-            Already have an account? <Link to="/SignIn">login</Link>
+            Already have an account? <Link to="/SignIn">Login</Link>
           </p>
         </section>
       </main>
