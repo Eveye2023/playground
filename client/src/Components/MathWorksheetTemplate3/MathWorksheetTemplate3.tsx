@@ -17,7 +17,17 @@ function MathWorksheetTemplate3() {
     let num = end + 1 - start;
     return Math.floor(Math.random() * num) + start;
   }
-
+  function renderRandomMathExpression() {
+    const randomNumPair = [randomNum(startNum, endNum), randomNum(startNum, endNum)];
+    if (operator === "-" || operator === "÷") {
+      randomNumPair.sort((a, b) => b - a);
+    }
+    return (
+      <>
+        {randomNumPair[0]} {operator} {randomNumPair[1]}
+      </>
+    );
+  }
   function submitHandler(event:any){
     event.preventDefault();
     setOperator(event.target.operator.value);
@@ -82,7 +92,7 @@ function MathWorksheetTemplate3() {
                 <img className="math-worksheet3__number-line" src={number_line} alt="number line" />
               {/* </div> */}
               <div className="math-worksheet3__mathmatic">
-                {randomNum(startNum,endNum)} {operator} {randomNum(startNum,endNum)} ={" "}
+                {renderRandomMathExpression()} ={" "}
                 <div className="math-worksheet3__answer-holder">
                     </div>
               </div>

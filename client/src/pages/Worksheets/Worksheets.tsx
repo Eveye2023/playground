@@ -15,12 +15,16 @@ function Worksheets() {
   function CreateBtnHandler() {
     setShowType(true);
     setShowForm(false);
-    window.scrollTo(0, document.body.scrollHeight);
+    setTimeout(() => {
+      window.scrollTo(0, document.body.scrollHeight);
+    }, 100)
   }
 
   function MathBtnHandler() {
     setShowForm(true);
-    window.scrollTo(0, document.body.scrollHeight);
+    setTimeout(() => {
+      window.scrollTo(0, document.body.scrollHeight);
+    }, 100)
   }
 
   function submitHandler(event: any) {
@@ -28,12 +32,15 @@ function Worksheets() {
     switch (template) {
       case "template1":
         navigate("/worksheets/math/template1");
+        window.scrollTo(0, 0);
         break;
       case "template2":
         navigate("/worksheets/math/template2");
+        window.scrollTo(0, 0);
         break;
       case "template3":
         navigate("/worksheets/math/template3");
+        window.scrollTo(0, 0);
         break;
       default:
       // code block

@@ -1,30 +1,38 @@
 import "./MathWorksheetTemplate1.scss";
-import logo from "../../assets/images/logo7.png";
 import { range } from "lodash";
 import PrintIcon from "../PrintIcon/PrintIcon";
 import { useState } from "react";
 
-
 function MathWorksheetTemplate1() {
-
-  const [operator,setOperator]= useState("+");
+  const [operator, setOperator] = useState("+");
   const [startNum, setStartNum] = useState(0);
-  const [endNum,setEndNum] = useState(0);
-  const [refresh,setRefresh] = useState(false);
+  const [endNum, setEndNum] = useState(0);
+  const [refresh, setRefresh] = useState(false);
 
-  function randomNum(start:number,end:number) {
+  function randomNum(start: number, end: number) {
     let num = end + 1 - start;
     return Math.floor(Math.random() * num) + start;
   }
 
-function submitHandler(event:any){
-  event.preventDefault();
-  setOperator(event.target.operator.value);
-  setStartNum(Number(event.target.start_number.value));
-  setEndNum(Number(event.target.end_number.value));  
-  setRefresh(!refresh);
-}
+  function submitHandler(event: any) {
+    event.preventDefault();
+    setOperator(event.target.operator.value);
+    setStartNum(Number(event.target.start_number.value));
+    setEndNum(Number(event.target.end_number.value));
+    setRefresh(!refresh);
+  }
 
+  function renderRandomMathExpression() {
+    const randomNumPair = [randomNum(startNum, endNum), randomNum(startNum, endNum)];
+    if (operator === "-" || operator === "÷") {
+      randomNumPair.sort((a, b) => b - a);
+    }
+    return (
+      <>
+        {randomNumPair[0]} {operator} {randomNumPair[1]}
+      </>
+    );
+  }
 
   return (
     <>
@@ -82,7 +90,7 @@ function submitHandler(event:any){
               <div className="math-worksheet__column" key={index1}>
                 {range(0, 10).map((index) => (
                   <div className="math-worksheet__quest" key={index}>
-                    {randomNum(startNum,endNum)} {operator} {randomNum(startNum,endNum)} =
+                    {renderRandomMathExpression()} =
                     <span className="math-worksheet__answer-holder"> </span>
                   </div>
                 ))}

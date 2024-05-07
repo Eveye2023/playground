@@ -81,6 +81,7 @@ const animals = range(1, 19).map((i) => `${i}.png`);
 function MemoryGame() {
   const [mode, setMode] = useState(Mode.EASY);
   const [theme, setTheme] = useState(Theme.ICON);
+  const [gameCounter, setGameCounter] = useState(0);
 
   const [dimensions, setDimensions] = useState([0, 0]);
   const [flippedCard1, setFlippedCard1] = useState(-1);
@@ -116,7 +117,7 @@ function MemoryGame() {
     setShuffledCards(shuffle(gameCards));
     setFlippedCard1(-1);
     setFlippedCard2(-1);
-  }, [mode, theme]);
+  }, [mode, theme, gameCounter]);
 
   const rows = dimensions[0];
   const cols = dimensions[1];
@@ -140,7 +141,8 @@ function MemoryGame() {
       ) {
         // match!
 
-        setScore(score + (10 - step) * 10);
+        
+        setScore(score + Math.max((10 - step) * 10, 10));
         setStep(0);
 
         console.log("match");
@@ -165,6 +167,7 @@ function MemoryGame() {
 
   function startGame() {
     setShowOptionModal(false);
+    restart();
   }
 
   function getMemoryGameCardImageClass(index: number) {
@@ -180,6 +183,7 @@ function MemoryGame() {
 
   function restart() {
     // setDimensions([0,0]);
+    setGameCounter(gameCounter+1);
     setFlippedCard1(-1);
     setFlippedCard2(-1);
     setSuccessfulGuesses([]);
