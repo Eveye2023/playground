@@ -15,16 +15,12 @@
     gap: 5rem;
     list-style: none;
     justify-content: center;
-
-    
   }
 
   &__item {
-    // padding: 3rem 4rem;
-    // border-radius: 2rem;
     padding: 1rem 2rem;
     font-size: 1.25rem;
-    font-weight:700;
+    font-weight: 700;
     outline: none;
     border: none;
     border-radius: 0.75rem;
@@ -33,7 +29,6 @@
     cursor: pointer;
     color: white;
     box-shadow: 0 0 0.75rem #799876, inset 0 0 10px #d1b90d;
-
   }
 
   &__item:hover {
@@ -43,30 +38,29 @@
     0% {
       transform: scale(0.7, 1.3);
     }
-  
+
     25% {
       transform: scale(1.3, 0.7);
     }
-  
+
     50% {
       transform: scale(0.7, 1.3);
     }
-  
+
     75% {
       transform: scale(1.3, 0.7);
     }
-  
+
     100% {
       transform: scale(1, 1);
     }
   }
 
-  
   &__memory-game {
     background-color: #e0c712;
   }
 
-  &__mole-game{
+  &__mole-game {
     background-color: #ff8806;
   }
 

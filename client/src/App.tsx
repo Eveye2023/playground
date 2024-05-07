@@ -2,7 +2,6 @@ import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignUp from "./pages/SignUp/SignUp";
 import SignIn from "./pages/SignIn/SignIn";
-import BubbleBackground from "./Components/BubbleBackground/BubbleBackground";
 import GameSelector from "./pages/GameSelector/GameSelector";
 import MemoryGame from "./pages/MemoryGame/MemoryGame";
 import Header from "./Components/Header/Header";
