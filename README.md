@@ -2,29 +2,20 @@
 Playground
 
 ## Overview
+I designed and implemented this web app for my daughter, who provided many design ideas. 
+The app offers study activities, worksheet customization, and small games for children.
 
-Offering study activities, worksheet customization and small games for kids under 10.
-
-### Problem
-
-I used to spend a lot of time to find approperiate worksheets and activities for my daughter, but didn't find a website with all these functions, and most these kind of websites are full with ads and popups.
-
-### User Profile
-
-- Children play with small games and do activities in this app. 
-- Parents can use the worksheet page to customize the worksheet they need and print or download it.
 
 ### Features
 
-- login 
-- games - At first I put a memory game in this app, it has 3 levels and 3 theme for choosing. And the score will be presented in real time. More small games will be added in the future.
+- signup/login 
+- games - The app includes a memory game with three levels and three themes to choose from. Scores are displayed in real-time, and additional small games will be added in the future.
 - worksheet generator
-  - Handwriting worksheet accepts input, parents can input the words or letters they need, font size and spacing are adjustable.
-  - Three math templates are provided. Each one support customazing number range and operator.
-- Activities -One bird guessing game is implemented. More activities will be added in the future.
-- profile page - logged in user can view their profile page and modify it.
+  - Handwriting worksheet allows parents to input custom words or letters, with adjustable font size and spacing.
+  - Three math templates are provided, each customizable for number ranges and operators.
+- Activities - Features a bird guessing game, with plans to add more activities in the future.
+- Profile page - Logged-in users can view and modify their profile page.
 
-## Implementation
 
 ### Tech Stack
 
@@ -86,60 +77,12 @@ I used to spend a lot of time to find approperiate worksheets and activities for
 ### Data
 ![](database.png)
 
-### Endpoints
-
-- **POST /auth/signup**
-- **POST /auth/signin**
-- **GET /profile**
-- **PUT /profile**
-
 
 ### Auth
 - JWT auth
 
-## Roadmap
 
-- Create client
-    - react project with routes and boilerplate pages
-
-- Create server
-    - express project with routing, with placeholder 200 responses
-
-- Create migrations
-
-- Create seeds with sample user data
-
-- Deploy client and server projects so all commits will be reflected in production
-
-- Feature: Home page
-
-- Feature: Create account
-    - Implement sign up page + form
-    - Create POST /auth/signup endpoint
-
-- Feature: Login
-    - Implement login page + form
-    - Create POST /auth/signin endpoint
-
-- Feature: Game
-    - Implement memory game
- 
-- Feature: Worksheets
-    - Implement handwriting worksheet
-    - Implement math worksheets
-
-- Feature: Activity
-    - Implement bird guessing activity
-    
-- Feature: Implement JWT tokens
-    - Server: Update expected requests / responses on protected endpoints
-    - Client: Store JWT in local storage, include JWT on axios calls
-
-- Bug fixes
-
-- DEMO DAY
-
-## Nice-to-haves
+## Future features
 - time lock - the screen will be locked if the user play games or activities more than 15 minites. Parents can unlock it with password.
 - Save game score and show the podium
 - User save their customized worksheet, make it public and let others to view, likes and download
